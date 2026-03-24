@@ -1,0 +1,1 @@
+﻿Эта папка хранит готовые Android launcher icons, собранные из пользовательской иконки приложения. Скрипт scripts/apply-android-mobile-assets.mjs копирует их в сгенерированный Android-проект Tauri после tauri android init.

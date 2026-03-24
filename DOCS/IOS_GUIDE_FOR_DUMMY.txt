@@ -1,0 +1,34 @@
+IOS CLOUD BUILD 0.9.2
+
+КАК ТЕСТИРОВАТЬ БЕЗ МАКА И БЕЗ АЙФОНА
+1. Делаешь push проекта через GITHUB\PUSH_TO_GITHUB.bat.
+2. GitHub Actions на macOS runner собирает iOS Simulator build.
+3. Скачиваешь артефакт из Actions.
+4. Загружаешь zip с .app в Appetize.
+5. Смотришь результат в браузере.
+
+ЧТО НУЖНО ДЛЯ PUSH
+- GITHUB_REPOSITORY_URL
+- GITHUB_USERNAME
+- GITHUB_PAT
+
+ЧТО ОБЯЗАТЕЛЬНО ДОЛЖНО БЫТЬ У ТОКЕНА
+Classic PAT:
+- repo
+- workflow
+
+Fine-grained PAT:
+- доступ к нужному репозиторию
+- Contents: Read and write
+- Actions / Workflows: Read and write
+
+ВАЖНО ПРО КЛЮЧ
+- Один и тот же GitHub PAT можно использовать много раз.
+- Менять его не нужно на каждый push.
+- Новый нужен только если токен истек, был отозван или засветился в логах / скринах / чате.
+
+
+0.9.3
+- iOS GitHub Actions simulator build переведен с прямого xcodebuild/xcode-script маршрута на официальный `tauri ios build --target <simulator>` чтобы не упираться в missing server-addr / exit code 65 на CI.
+- GitHub Actions обновлены: checkout v5, setup-node v5, Node.js 22 для job setup.
+- JS-пакеты Tauri выровнены до 2.5.6 под Rust Tauri 2.5.6.

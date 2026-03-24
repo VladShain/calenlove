@@ -1,0 +1,12 @@
+﻿﻿NETWORK AND SYNC
+
+Builder network logic:
+- Android, iPhone, EXE and SERVER builders check network only for dependency/setup steps.
+- If node_modules already exists, build can continue offline where possible.
+- Missing Android SDK pieces or missing Apple/Xcode dependencies still require internet or manual install.
+
+App network logic:
+- The calendar should keep local data without network.
+- If KEY_API has no cloud keys, the app stays in local mode and does not need a server.
+- After network returns, cloud sync should resume if .env is configured.
+- Builder network requirements do not mean the app itself must always stay online.

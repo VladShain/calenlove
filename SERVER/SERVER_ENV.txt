@@ -1,0 +1,6 @@
+﻿﻿# SERVER_ENV.txt
+# Эти значения можно оставить как есть. Для локального Android-маршрута они вообще не нужны.
+HOST=0.0.0.0
+PORT=4173
+PUBLIC_DIR=public
+DEPLOY_BASE=~/loverscalendar-server

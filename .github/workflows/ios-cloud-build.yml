@@ -1,0 +1,62 @@
+name: ios-cloud-build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-ios-simulator:
+    name: build-ios-simulator
+    runs-on: macos-latest
+    permissions:
+      contents: read
+    env:
+      CI: "true"
+      APPETIZE_API_TOKEN: ${{ secrets.APPETIZE_API_TOKEN }}
+      APPETIZE_PUBLIC_KEY: ${{ secrets.APPETIZE_PUBLIC_KEY }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Setup Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-apple-ios-sim,aarch64-apple-ios
+
+      - name: Restore Rust cache
+        uses: swatinem/rust-cache@v2
+        with:
+          workspaces: ./src-tauri -> target
+
+      - name: Build iOS simulator artifact
+        run: bash scripts/ios/build-ios-simulator-ci.sh
+
+      - name: Upload iOS simulator artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: LoversCalendar_iOS_Simulator_${{ github.run_number }}
+          path: |
+            IPHONE/READY/LoversCalendar_iOS_Simulator_*.zip
+            IPHONE/READY/CI_LATEST_BUILD_INFO.txt
+            IPHONE/READY/CI_SUMMARY.md
+            IPHONE/READY/appetize-response.json
+            logs/iphone_ci_simulator_*.log
+            logs/iphone_ci_simulator_LATEST.log
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Append workflow summary
+        if: always()
+        run: |
+          if [ -f IPHONE/READY/CI_SUMMARY.md ]; then
+            cat IPHONE/READY/CI_SUMMARY.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "iOS simulator summary was not created." >> "$GITHUB_STEP_SUMMARY"
+          fi

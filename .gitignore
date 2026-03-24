@@ -1,0 +1,16 @@
+node_modules/
+dist/
+src-tauri/target/
+src-tauri/gen/
+.vscode/
+.idea/
+.DS_Store
+logs/*.log
+ANDROID/READY/*
+EXE/READY/*
+IPHONE/READY/*
+KEY_API
+.env.local
+!ANDROID/READY/.gitkeep
+!EXE/READY/.gitkeep
+!IPHONE/READY/.gitkeep

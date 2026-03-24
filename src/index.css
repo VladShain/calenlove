@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, sans-serif;
+  background: #f7eef6;
+  color: #3f2d3f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  min-width: 100%;
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+body {
+  overflow: hidden;
+  touch-action: manipulation;
+  overscroll-behavior-y: none;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  background:
+    radial-gradient(circle at top left, rgba(255, 169, 214, 0.38), transparent 28%),
+    radial-gradient(circle at 84% 10%, rgba(255, 215, 236, 0.56), transparent 26%),
+    radial-gradient(circle at 18% 82%, rgba(255, 201, 229, 0.40), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(174, 196, 255, 0.24), transparent 34%),
+    radial-gradient(circle at 50% 28%, rgba(255, 240, 247, 0.95), transparent 34%),
+    linear-gradient(180deg, rgba(255,252,254,0.99), rgba(255,240,247,0.99)),
+    #f8eff6;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(137, 120, 130, 0.7);
+}
+
+img {
+  display: block;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 173, 255, 0.3);
+  border-radius: 999px;
+}
+
+.app-bg-luxuryBlue {
+  background:
+    linear-gradient(180deg, rgba(4, 10, 24, 0.95), rgba(6, 15, 31, 0.99)),
+    radial-gradient(circle at 14% 10%, rgba(40, 181, 255, 0.28), transparent 22%),
+    radial-gradient(circle at 86% 12%, rgba(97, 124, 255, 0.24), transparent 26%),
+    radial-gradient(circle at 50% 88%, rgba(44, 108, 214, 0.24), transparent 34%),
+    radial-gradient(circle at 28% 72%, rgba(91, 210, 255, 0.12), transparent 24%),
+    #081220;
+}
+
+.app-bg-whitePink {
+  background:
+    linear-gradient(180deg, rgba(255, 251, 253, 0.96), rgba(255, 237, 246, 0.99)),
+    radial-gradient(circle at 12% 10%, rgba(255, 147, 206, 0.48), transparent 18%),
+    radial-gradient(circle at 88% 8%, rgba(255, 205, 230, 0.62), transparent 22%),
+    radial-gradient(circle at 76% 78%, rgba(214, 199, 255, 0.42), transparent 24%),
+    radial-gradient(circle at 20% 84%, rgba(255, 194, 224, 0.54), transparent 22%),
+    radial-gradient(circle at 52% 22%, rgba(255, 244, 249, 0.99), transparent 34%),
+    radial-gradient(circle at 50% 60%, rgba(255, 220, 238, 0.48), transparent 26%),
+    linear-gradient(135deg, rgba(255,255,255,0.58), rgba(255,220,238,0.52)),
+    #fff5fb;
+}
+
+.app-bg-darkRed {
+  background:
+    linear-gradient(180deg, rgba(20, 4, 8, 0.97), rgba(10, 2, 4, 0.99)),
+    radial-gradient(circle at 16% 12%, rgba(255, 87, 120, 0.18), transparent 20%),
+    radial-gradient(circle at 84% 10%, rgba(145, 37, 58, 0.22), transparent 24%),
+    radial-gradient(circle at 50% 88%, rgba(94, 15, 28, 0.18), transparent 30%),
+    #0a0508;
+}
+
+.app-bg-blackout {
+  background:
+    linear-gradient(180deg, rgba(6, 6, 8, 0.99), rgba(2, 2, 3, 1)),
+    radial-gradient(circle at 20% 14%, rgba(58, 58, 64, 0.10), transparent 18%),
+    radial-gradient(circle at 82% 12%, rgba(32, 32, 36, 0.10), transparent 22%),
+    #040405;
+}
+
+.glass-shell,
+.glass-panel,
+.glass-field {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.46),
+    0 22px 56px rgba(20, 24, 32, 0.14);
+}
+
+.shadow-rose {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.58),
+    0 22px 46px rgba(216, 91, 159, 0.22);
+}
+
+.shadow-glass {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.30),
+    0 18px 40px rgba(12, 18, 26, 0.18);
+}
+
+.touch-pan-y {
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
+.no-glass-effects [class*="backdrop-blur"] {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.no-glass-effects .glass-shell,
+.no-glass-effects .glass-panel,
+.no-glass-effects .glass-field,
+.no-glass-effects .shadow-rose,
+.no-glass-effects .shadow-glass,
+.no-glass-effects [class*="shadow-"] {
+  box-shadow: none !important;
+}
+
+.no-glass-effects [style*="backdrop-filter"],
+.no-glass-effects [style*="blur"] {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.reduce-motion-ui *,
+.reduce-motion-ui *::before,
+.reduce-motion-ui *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+.reduce-decor-ui [data-decorative="true"] {
+  display: none !important;
+}
+
+body.tamagotchi-room-open {
+  overflow: hidden;
+}
+
+body.tamagotchi-room-open .app-shell-bottom-nav {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateY(calc(100% + 2rem));
+}
+
+
+body.runtime-ios {
+  -webkit-font-smoothing: antialiased;
+}
+
+body.runtime-ios input,
+body.runtime-ios textarea,
+body.runtime-ios select {
+  font-size: 16px;
+}

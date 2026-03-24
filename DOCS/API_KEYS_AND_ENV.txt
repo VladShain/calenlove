@@ -1,0 +1,30 @@
+﻿﻿KEY_API И .env
+
+Главный файл для ручного ввода теперь: KEY_API в корне проекта.
+
+Туда вписываются:
+- VITE_SUPABASE_URL
+- VITE_SUPABASE_ANON_KEY
+- VITE_SUPABASE_BUCKET
+- SERVER_PUBLIC_URL
+- SERVER_HOST
+- SERVER_PORT
+- SERVER_DEPLOY_PATH
+- SERVER_ARCHIVE_NAME
+- ANDROID_SDK_ROOT
+- ANDROID_HOME
+- JAVA_HOME
+- NDK_HOME
+
+Сборщики сами читают KEY_API.
+Для совместимости они ещё понимают старый KEY_API.txt, если он остался от прошлой версии.
+
+После запуска START_DEV.bat, Android BUILD или SERVER BUILD:
+- .env.local обновляется автоматически
+- туда попадают VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY, VITE_SUPABASE_BUCKET
+- туда же попадает режим local/cloud
+
+Значит ручной маршрут теперь такой:
+1) редактируешь KEY_API
+2) для apk запускаешь ANDROID\CHECK_ANDROID_ENV.bat
+3) для сервера запускаешь SERVER\BUILD_SERVER_PACKAGE.bat

@@ -1,0 +1,53 @@
+{
+  "name": "lovers-calendar",
+  "private": true,
+  "version": "0.9.7",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/run-with-log.mjs dev \"npx vite\"",
+    "build": "node scripts/run-with-log.mjs build \"npx tsc -b && npx vite build\"",
+    "tauri": "npx tauri",
+    "preview": "node scripts/run-with-log.mjs preview \"npx vite preview\"",
+    "tauri:dev": "node scripts/run-with-log.mjs tauri-dev \"npx tauri dev\"",
+    "tauri:build": "node scripts/run-with-log.mjs tauri-build \"npx tauri build\"",
+    "tauri:android:init": "node scripts/run-with-log.mjs android-init \"npx tauri android init\"",
+    "tauri:android:dev": "node scripts/run-with-log.mjs android-dev \"npx tauri android dev\"",
+    "tauri:android:build": "node scripts/run-with-log.mjs android-build \"npx tauri android build --apk\"",
+    "lint": "npx tsc --noEmit",
+    "tauri:ios:init": "node scripts/run-with-log.mjs ios-init \"npx tauri ios init\"",
+    "tauri:ios:dev": "node scripts/run-with-log.mjs ios-dev \"npx tauri ios dev\"",
+    "tauri:ios:build": "node scripts/run-with-log.mjs ios-build \"npx tauri ios build\"",
+    "tauri:ios:run": "node scripts/run-with-log.mjs ios-run \"npx tauri ios run\"",
+    "tauri:ios:check": "node scripts/run-with-log.mjs ios-check \"bash scripts/ios/check-ios-env.sh\"",
+    "tauri:ios:open": "node scripts/run-with-log.mjs ios-open \"bash scripts/ios/open-xcode.sh\"",
+    "tauri:ios:simulator": "node scripts/run-with-log.mjs ios-simulator \"bash scripts/ios/run-ios-simulator.sh\"",
+    "tauri:windows:build": "node scripts/run-with-log.mjs windows-build \"npx tauri build --no-sign\"",
+    "tauri:windows:build:nsis": "node scripts/run-with-log.mjs windows-build-nsis \"npx tauri build --bundles nsis --no-sign\"",
+    "tauri:windows:build:msi": "node scripts/run-with-log.mjs windows-build-msi \"npx tauri build --bundles msi --no-sign\"",
+    "tauri:windows:build:signed": "node scripts/run-with-log.mjs windows-build-signed \"npx tauri build\""
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.57.4",
+    "@tauri-apps/api": "2.5.0",
+    "clsx": "2.1.1",
+    "date-fns": "4.1.0",
+    "framer-motion": "11.18.2",
+    "lucide-react": "0.511.0",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "tailwind-merge": "2.6.0",
+    "zustand": "5.0.8"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "2.5.0",
+    "@types/node": "24.3.0",
+    "@types/react": "19.1.11",
+    "@types/react-dom": "19.1.7",
+    "@vitejs/plugin-react": "4.6.0",
+    "autoprefixer": "10.4.21",
+    "postcss": "8.5.6",
+    "tailwindcss": "3.4.17",
+    "typescript": "5.9.2",
+    "vite": "6.3.6"
+  }
+}
